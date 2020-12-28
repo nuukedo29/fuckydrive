@@ -1,8 +1,11 @@
 import win32con
 import win32file
 import exrex
+import sys
 
-# This needs to be ran in 32 bit python 
+if sys.maxsize > 2 ** 32:
+	print("please use a 32 bit python")
+	sys.exit(1)
 
 FuckyHandle = win32file.CreateFile(
 	"\\\\.\\PhysicalDrive4", # Change this according to: wmic diskdrive list brief
